@@ -7,12 +7,12 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: samaviaahmad-com
-  ECS_CLUSTER: samaviaahmad-production-cluster
-  ECS_SERVICE: samaviaahmad-production-service
-  ECS_TASK_FAMILY: samaviaahmad-production-task
-  CONTAINER_NAME: app
-  SSM_PARAM_NAME: /samaviaahmad-production/ANTHROPIC_API_KEY
+  ECR_REPOSITORY: samaviaahmad
+  ECS_CLUSTER: setpoint-cluster
+  ECS_SERVICE: samaviaahmad-service
+  ECS_TASK_FAMILY: samaviaahmad
+  CONTAINER_NAME: samaviaahmad
+  SSM_PARAM_NAME: /samaviaahmad/ANTHROPIC_API_KEY
 
 concurrency:
   group: deploy-${{ github.ref }}
