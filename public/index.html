@@ -8,56 +8,61 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="bg-layer" aria-hidden="true">
-    <svg class="wave wave-1" viewBox="0 0 2400 400" preserveAspectRatio="none">
+    <svg class="dna-helix" viewBox="0 0 2400 400" preserveAspectRatio="none">
       <defs>
-        <linearGradient id="wave-grad-1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2400" y2="0">
-          <stop offset="0%"   stop-color="#8B5CF6"/>
-          <stop offset="50%"  stop-color="#3B82F6"/>
+        <linearGradient id="dna-strand-a" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2400" y2="0">
+          <stop offset="0%"   stop-color="#3B82F6"/>
+          <stop offset="33%"  stop-color="#8B5CF6"/>
+          <stop offset="66%"  stop-color="#06B6D4"/>
           <stop offset="100%" stop-color="#A855F7"/>
         </linearGradient>
-      </defs>
-      <path
-        d="M0,220 Q300,100 600,220 T1200,220 T1800,220 T2400,220 L2400,400 L0,400 Z"
-        fill="url(#wave-grad-1)"
-      />
-    </svg>
-
-    <svg class="wave wave-2" viewBox="0 0 2400 400" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="wave-grad-2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2400" y2="0">
+        <linearGradient id="dna-strand-b" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2400" y2="0">
           <stop offset="0%"   stop-color="#06B6D4"/>
-          <stop offset="50%"  stop-color="#2563EB"/>
+          <stop offset="33%"  stop-color="#A855F7"/>
+          <stop offset="66%"  stop-color="#3B82F6"/>
           <stop offset="100%" stop-color="#0EA5E9"/>
         </linearGradient>
       </defs>
-      <path
-        d="M0,220 Q150,140 300,220 Q450,300 600,220 Q750,140 900,220 Q1050,300 1200,220 Q1350,140 1500,220 Q1650,300 1800,220 Q1950,140 2100,220 Q2250,300 2400,220 L2400,400 L0,400 Z"
-        fill="url(#wave-grad-2)"
-      />
+
+      <g class="dna-rungs" stroke="rgba(147, 197, 253, 0.55)" stroke-width="2.5" stroke-linecap="round">
+        <line x1="100"  y1="100" x2="100"  y2="300"/>
+        <line x1="300"  y1="100" x2="300"  y2="300"/>
+        <line x1="500"  y1="100" x2="500"  y2="300"/>
+        <line x1="700"  y1="100" x2="700"  y2="300"/>
+        <line x1="900"  y1="100" x2="900"  y2="300"/>
+        <line x1="1100" y1="100" x2="1100" y2="300"/>
+        <line x1="1300" y1="100" x2="1300" y2="300"/>
+        <line x1="1500" y1="100" x2="1500" y2="300"/>
+        <line x1="1700" y1="100" x2="1700" y2="300"/>
+        <line x1="1900" y1="100" x2="1900" y2="300"/>
+        <line x1="2100" y1="100" x2="2100" y2="300"/>
+        <line x1="2300" y1="100" x2="2300" y2="300"/>
+      </g>
+
+      <path class="dna-strand"
+        d="M0,200 Q100,100 200,200 Q300,300 400,200 Q500,100 600,200 Q700,300 800,200 Q900,100 1000,200 Q1100,300 1200,200 Q1300,100 1400,200 Q1500,300 1600,200 Q1700,100 1800,200 Q1900,300 2000,200 Q2100,100 2200,200 Q2300,300 2400,200"
+        fill="none" stroke="url(#dna-strand-a)" stroke-width="6" stroke-linecap="round"/>
+
+      <path class="dna-strand"
+        d="M0,200 Q100,300 200,200 Q300,100 400,200 Q500,300 600,200 Q700,100 800,200 Q900,300 1000,200 Q1100,100 1200,200 Q1300,300 1400,200 Q1500,100 1600,200 Q1700,300 1800,200 Q1900,100 2000,200 Q2100,300 2200,200 Q2300,100 2400,200"
+        fill="none" stroke="url(#dna-strand-b)" stroke-width="6" stroke-linecap="round"/>
     </svg>
 
-    <svg class="wave wave-3" viewBox="0 0 2400 400" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="wave-grad-3" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2400" y2="0">
-          <stop offset="0%"   stop-color="#60A5FA"/>
-          <stop offset="50%"  stop-color="#93C5FD"/>
-          <stop offset="100%" stop-color="#60A5FA"/>
-        </linearGradient>
-      </defs>
-      <path
-        d="M0,220 Q100,160 200,220 Q300,280 400,220 Q500,160 600,220 Q700,280 800,220 Q900,160 1000,220 Q1100,280 1200,220 Q1300,160 1400,220 Q1500,280 1600,220 Q1700,160 1800,220 Q1900,280 2000,220 Q2100,160 2200,220 Q2300,280 2400,220 L2400,400 L0,400 Z"
-        fill="url(#wave-grad-3)"
-      />
-    </svg>
+    <div class="frost"></div>
   </div>
 
   <header class="topbar">
     <div class="topbar-inner">
-      <span class="wordmark">Samavia Ahmad</span>
+      <a class="wordmark" href="/" aria-label="samavia ahmad — home">
+        <img class="wordmark-logo" src="/logo.png" alt="" width="44" height="44" />
+        <span class="wordmark-text">samavia ahmad</span>
+      </a>
       <nav class="topbar-icons" aria-label="Contact">
         <a class="icon-link" href="https://calendly.com/ahmadsamavia/30min" target="_blank" rel="noopener noreferrer" aria-label="Book a call" title="Book a call">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
