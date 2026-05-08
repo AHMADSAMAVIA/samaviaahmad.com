@@ -1,0 +1,17 @@
+# Copy to terraform.tfvars and fill in. terraform.tfvars is gitignored.
+# All values shown below are the defaults from variables.tf — only override
+# the ones you need to change.
+
+domain_name = "samaviaahmad.com"
+aws_region  = "us-east-1"
+environment = "production"
+
+# Optional: only set if you want Terraform to seed the SSM Parameter on
+# first apply. The CI pipeline overwrites this value on every deploy, so
+# leaving it as the placeholder default and letting CI populate it is fine.
+# anthropic_api_key = "sk-ant-..."
+
+# Resource sizing
+# task_cpu       = 512
+# task_memory    = 1024
+# desired_count  = 1

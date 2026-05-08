@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0F172A" />
+  <title>Samavia Ahmad — Grant Writing & Regulatory Strategy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-layer" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+    <div class="dot-grid"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <span class="wordmark">Samavia Ahmad</span>
+      <nav class="topbar-icons" aria-label="Contact">
+        <a class="icon-link" href="https://calendly.com/ahmadsamavia/30min" target="_blank" rel="noopener noreferrer" aria-label="Book a call" title="Book a call">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="6" width="14" height="12" rx="2.5"/>
+            <path d="M22 8.5l-6 3.5 6 3.5v-7z"/>
+          </svg>
+        </a>
+        <a class="icon-link" href="mailto:ahmadsamavia@outlook.com" aria-label="Email Samavia" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="M3 7l9 6 9-6"/>
+          </svg>
+        </a>
+        <a class="icon-link" href="https://www.linkedin.com/in/samavia-ahmad/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="split">
+    <aside class="visual" aria-hidden="true">
+      <div class="visual-stack">
+        <h2 class="visual-line">Grant Writing</h2>
+        <h2 class="visual-line accent">Regulatory Strategy</h2>
+        <h2 class="visual-line muted">Biotech Funding</h2>
+      </div>
+      <p class="visual-tagline">For biotech startups in the U.S. and Canada.</p>
+    </aside>
+
+    <section class="thread" aria-label="Conversation">
+      <div id="messages" class="messages" role="log" aria-live="polite"></div>
+
+      <div id="rate-warning" class="rate-warning hidden" role="alert">
+        You've reached the 5-question limit for this session.
+        <a href="https://calendly.com/ahmadsamavia/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+        to keep the conversation going.
+      </div>
+
+      <form id="chat-form" class="composer" autocomplete="off">
+        <input
+          id="chat-input"
+          name="message"
+          type="text"
+          placeholder="Ask about SBIR, IRAP, or regulatory strategy…"
+          aria-label="Your question"
+          required
+        />
+        <button id="send-btn" type="submit" aria-label="Send">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </button>
+      </form>
+
+      <div class="suggested" aria-label="Suggested questions">
+        <button class="suggest-btn" type="button" disabled
+          data-question="How do SBIR grants work for Canadian founders?"
+          aria-label="Ask: How do SBIR grants work for Canadian founders?"></button>
+        <button class="suggest-btn" type="button" disabled
+          data-question="What's your success rate with regulatory submissions?"
+          aria-label="Ask: What's your success rate with regulatory submissions?"></button>
+        <button class="suggest-btn" type="button" disabled
+          data-question="Can you help with both U.S. and Canadian funding applications?"
+          aria-label="Ask: Can you help with both U.S. and Canadian funding applications?"></button>
+        <button class="suggest-btn" type="button" disabled
+          data-question="What does your grant writing process look like?"
+          aria-label="Ask: What does your grant writing process look like?"></button>
+        <button class="suggest-btn" type="button" disabled
+          data-question="How much do you charge for an SBIR application?"
+          aria-label="Ask: How much do you charge for an SBIR application?"></button>
+      </div>
+
+      <p class="counter">Questions used: <span id="counter">0</span> / 5</p>
+    </section>
+  </main>
+
+  <script>
+    const messagesEl = document.getElementById('messages');
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('send-btn');
+    const counterEl = document.getElementById('counter');
+    const rateWarning = document.getElementById('rate-warning');
+    const suggestButtons = document.querySelectorAll('.suggest-btn');
+
+    let queriesUsed = 0;
+    const MAX_QUERIES = 5;
+    const STREAM_DELAY_MS = 30;
+    const QUESTION_TYPING_MS = 30;
+    const QUESTION_STAGGER_MS = 700;
+
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    const USER_ICON_SVG = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+      </svg>`;
+
+    function buildAvatar(role) {
+      const av = document.createElement('div');
+      av.className = `avatar avatar-${role === 'user' ? 'user' : 'sa'}`;
+      av.setAttribute('aria-hidden', 'true');
+      if (role === 'user') av.innerHTML = USER_ICON_SVG;
+      else av.textContent = 'SA';
+      return av;
+    }
+
+    function appendMessage(role, text) {
+      const wrap = document.createElement('div');
+      wrap.className = `msg msg-${role}`;
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.textContent = text;
+      const avatar = buildAvatar(role);
+      if (role === 'user') {
+        wrap.appendChild(bubble);
+        wrap.appendChild(avatar);
+      } else {
+        wrap.appendChild(avatar);
+        wrap.appendChild(bubble);
+      }
+      messagesEl.appendChild(wrap);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return bubble;
+    }
+
+    function appendTypingIndicator() {
+      const wrap = document.createElement('div');
+      wrap.className = 'msg msg-assistant';
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      const typing = document.createElement('span');
+      typing.className = 'typing';
+      typing.setAttribute('aria-label', 'Assistant is typing');
+      for (let i = 0; i < 3; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        typing.appendChild(dot);
+      }
+      bubble.appendChild(typing);
+      wrap.appendChild(buildAvatar('assistant'));
+      wrap.appendChild(bubble);
+      messagesEl.appendChild(wrap);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return bubble;
+    }
+
+    function parseMarkdownTokens(text) {
+      const tokens = [];
+      const re = /\[([^\]]+)\]\(([^)]+)\)/g;
+      let last = 0;
+      let m;
+      while ((m = re.exec(text))) {
+        if (m.index > last) tokens.push({ type: 'text', text: text.slice(last, m.index) });
+        tokens.push({ type: 'link', text: m[1], href: m[2] });
+        last = re.lastIndex;
+      }
+      if (last < text.length) tokens.push({ type: 'text', text: text.slice(last) });
+      return tokens;
+    }
+
+    async function streamInto(bubble, fullText) {
+      bubble.textContent = '';
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
+      bubble.appendChild(cursor);
+
+      let textNode = document.createTextNode('');
+      bubble.insertBefore(textNode, cursor);
+
+      const tokens = parseMarkdownTokens(fullText);
+
+      for (const tok of tokens) {
+        if (tok.type === 'text') {
+          for (const ch of tok.text) {
+            textNode.data += ch;
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+            await wait(STREAM_DELAY_MS);
+          }
+        } else {
+          const a = document.createElement('a');
+          a.href = tok.href;
+          a.className = 'book-link';
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          bubble.insertBefore(a, cursor);
+          textNode = document.createTextNode('');
+          bubble.insertBefore(textNode, cursor);
+          for (const ch of tok.text) {
+            a.textContent += ch;
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+            await wait(STREAM_DELAY_MS);
+          }
+        }
+      }
+      cursor.remove();
+    }
+
+    function setLocked(locked) {
+      input.disabled = locked;
+      sendBtn.disabled = locked;
+      suggestButtons.forEach((b) => {
+        if (locked) b.disabled = true;
+        else if (b.dataset.ready === '1') b.disabled = false;
+      });
+    }
+
+    async function sendMessage(text) {
+      if (!text || queriesUsed >= MAX_QUERIES) return;
+      appendMessage('user', text);
+      input.value = '';
+      setLocked(true);
+
+      const placeholder = appendTypingIndicator();
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text })
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          placeholder.textContent = data.error || 'Something went wrong. Please try again.';
+          if (res.status === 429) {
+            queriesUsed = MAX_QUERIES;
+            counterEl.textContent = MAX_QUERIES;
+            rateWarning.classList.remove('hidden');
+            setLocked(true);
+            return;
+          }
+        } else {
+          queriesUsed = data.queriesUsed ?? queriesUsed + 1;
+          counterEl.textContent = queriesUsed;
+          await streamInto(placeholder, data.reply);
+          if (queriesUsed >= MAX_QUERIES) {
+            rateWarning.classList.remove('hidden');
+            setLocked(true);
+            return;
+          }
+        }
+      } catch (err) {
+        placeholder.textContent = 'Network error. Please try again.';
+      } finally {
+        if (queriesUsed < MAX_QUERIES) {
+          setLocked(false);
+          input.focus();
+        }
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (text) sendMessage(text);
+    });
+
+    suggestButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (btn.disabled) return;
+        sendMessage(btn.dataset.question);
+      });
+    });
+
+    async function typeQuestion(btn) {
+      const q = btn.dataset.question;
+      btn.classList.add('visible', 'typing');
+      for (const ch of q) {
+        btn.textContent += ch;
+        await wait(QUESTION_TYPING_MS);
+      }
+      btn.classList.remove('typing');
+      btn.dataset.ready = '1';
+      btn.disabled = false;
+    }
+
+    async function animateQuestions() {
+      const tasks = [];
+      suggestButtons.forEach((btn, i) => {
+        tasks.push(wait(i * QUESTION_STAGGER_MS).then(() => typeQuestion(btn)));
+      });
+      await Promise.all(tasks);
+    }
+
+    function preMeasureButtons() {
+      // Render the full question text invisibly to claim final width,
+      // then clear it. The typewriter then types into a pre-sized box,
+      // so the layout doesn't expand as characters appear.
+      suggestButtons.forEach((btn) => {
+        btn.textContent = btn.dataset.question;
+        const w = btn.getBoundingClientRect().width;
+        btn.style.minWidth = `${Math.ceil(w)}px`;
+        btn.textContent = '';
+      });
+    }
+
+    async function startIntro() {
+      const ready = (document.fonts && document.fonts.ready) || Promise.resolve();
+      await Promise.race([ready, wait(800)]);
+      preMeasureButtons();
+      animateQuestions();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startIntro);
+    } else {
+      startIntro();
+    }
+  </script>
+</body>
+</html>
