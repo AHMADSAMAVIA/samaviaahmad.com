@@ -243,11 +243,21 @@ button { cursor: pointer; }
 .visual-line.accent { color: var(--accent-light); }
 .visual-line.muted  { color: var(--muted); }
 
+.visual-subtitle {
+  margin: 28px 0 6px;
+  color: var(--accent-bright);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
 .visual-tagline {
-  margin: 28px 0 0;
+  margin: 0;
   color: var(--muted);
   font-size: 0.95rem;
+  line-height: 1.55;
   letter-spacing: 0.01em;
+  max-width: 640px;
 }
 
 /* ── messages ─────────────────────────────────────── */
@@ -539,20 +549,131 @@ button { cursor: pointer; }
   50% { opacity: 0; }
 }
 
-/* ── desktop: fit on one screen, no page scroll ───── */
+/* ── content sections (about, services, proof) ───── */
+.content-section {
+  position: relative;
+  padding: 80px 32px;
+  border-top: 1px solid var(--border);
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+}
+
+.content-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.content-section h2 {
+  margin: 0 0 24px;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+.content-section p {
+  margin: 0 0 16px;
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.content-section p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  box-shadow: var(--shadow-sm);
+  transition:
+    background 0.2s var(--ease),
+    box-shadow 0.25s var(--ease-out),
+    transform 0.2s var(--ease-out);
+}
+
+.cta-button:hover,
+.cta-button:focus-visible {
+  background: var(--accent-hover);
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.service-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition:
+    border-color 0.2s var(--ease),
+    transform 0.2s var(--ease-out),
+    box-shadow 0.25s var(--ease-out);
+}
+
+.service-card:hover {
+  border-color: var(--accent-tint);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+
+.service-card h3 {
+  margin: 0 0 10px;
+  color: var(--accent-light);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.service-card p {
+  margin: 0;
+  max-width: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.setpoint-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--accent-light);
+  font-weight: 600;
+  font-size: 0.98rem;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: color 0.15s var(--ease);
+}
+
+.setpoint-link:hover,
+.setpoint-link:focus-visible {
+  color: var(--accent-bright);
+  outline: none;
+}
+
+/* ── desktop: hero fills first viewport, page scrolls below ── */
 @media (min-width: 769px) {
-  html, body {
-    height: 100vh;
-    overflow: hidden;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-  .topbar { flex: 0 0 auto; }
   .split {
-    flex: 1 1 auto;
-    min-height: 0;
+    height: calc(100vh - 73px);
   }
   .thread {
     flex: 0 0 40%;
@@ -562,9 +683,7 @@ button { cursor: pointer; }
     flex: 1 1 auto;
     min-height: 0;
   }
-  .composer { flex: 0 0 auto; }
-  .suggested { flex: 0 0 auto; }
-  .counter { flex: 0 0 auto; margin: auto 4px 0; padding-top: 14px; }
+  .counter { margin: auto 4px 0; padding-top: 14px; }
   .visual {
     flex: 1 1 60%;
     min-height: 0;
@@ -592,6 +711,10 @@ button { cursor: pointer; }
   .bubble { max-width: 86%; font-size: 0.94rem; }
   #chat-input { font-size: 16px; }
   .suggest-btn { font-size: 0.88rem; padding: 4px 0; }
+  .content-section { padding: 56px 18px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .visual-subtitle { font-size: 0.9rem; }
+  .visual-tagline { font-size: 0.9rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
