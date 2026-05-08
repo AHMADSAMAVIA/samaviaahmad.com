@@ -1,6 +1,6 @@
 :root {
   /* dark slate theme */
-  --bg: #0F172A;
+  --bg: #0A0E27;
   --bg-elev: #1E293B;
   --surface: #1E293B;
   --border: #334155;
@@ -63,7 +63,7 @@ body {
   to   { opacity: 1; }
 }
 
-/* ── animated background orbs + dot grid ──────────── */
+/* ── animated wave background ─────────────────────── */
 .bg-layer {
   position: fixed;
   inset: 0;
@@ -72,77 +72,39 @@ body {
   pointer-events: none;
 }
 
-.orb {
+.wave {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
+  left: 0;
+  width: 200vw;
+  height: 60vh;
+  pointer-events: none;
   will-change: transform;
   mix-blend-mode: screen;
 }
 
-.orb-1 {
-  width: 540px;
-  height: 540px;
-  background: #3B82F6;
-  top: -8%;
-  left: -8%;
-  opacity: 0.28;
-  animation: drift-1 18s ease-in-out infinite;
+/* SVG path is periodic at 1200 viewBox units (= 100vw rendered);
+   translateX(-50%) shifts by exactly one period for a seamless loop. */
+@keyframes wave-drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-.orb-2 {
-  width: 480px;
-  height: 480px;
-  background: #8B5CF6;
-  top: 35%;
-  right: -10%;
-  opacity: 0.24;
-  animation: drift-2 22s ease-in-out infinite;
+.wave-1 {
+  bottom: -8%;
+  opacity: 0.32;
+  animation: wave-drift 28s linear infinite;
 }
 
-.orb-3 {
-  width: 600px;
-  height: 600px;
-  background: #06B6D4;
-  bottom: -18%;
-  left: 25%;
+.wave-2 {
+  bottom: 18%;
   opacity: 0.22;
-  animation: drift-3 16s ease-in-out infinite;
+  animation: wave-drift 22s linear infinite reverse;
 }
 
-.orb-4 {
-  width: 420px;
-  height: 420px;
-  background: #60A5FA;
-  top: 18%;
-  left: 38%;
-  opacity: 0.20;
-  animation: drift-4 20s ease-in-out infinite;
-}
-
-@keyframes drift-1 {
-  0%, 100% { transform: translate(0, 0); }
-  50%      { transform: translate(38vw, 32vh); }
-}
-@keyframes drift-2 {
-  0%, 100% { transform: translate(0, 0); }
-  50%      { transform: translate(-32vw, -28vh); }
-}
-@keyframes drift-3 {
-  0%, 100% { transform: translate(0, 0); }
-  50%      { transform: translate(-22vw, -42vh); }
-}
-@keyframes drift-4 {
-  0%, 100% { transform: translate(0, 0); }
-  50%      { transform: translate(28vw, -22vh); }
-}
-
-.dot-grid {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.55) 1px, transparent 1px);
-  background-size: 26px 26px;
-  opacity: 0.025;
+.wave-3 {
+  bottom: 42%;
+  opacity: 0.16;
+  animation: wave-drift 18s linear infinite;
 }
 
 a { color: inherit; cursor: pointer; }
