@@ -152,6 +152,44 @@ button { cursor: pointer; }
   outline: none;
 }
 
+/* ── availability banner ──────────────────────────── */
+.availability-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: #0f0f0f;
+  border-bottom: 1px solid #1a1a1a;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: #888888;
+}
+
+.availability-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.availability-dot.closed {
+  background-color: #4fffb0;
+  box-shadow: 0 0 6px #4fffb0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.availability-text strong {
+  color: #4fffb0;
+  font-weight: 600;
+}
+
 /* ── split layout ─────────────────────────────────── */
 .split {
   max-width: 1280px;
