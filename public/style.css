@@ -645,6 +645,62 @@ button { cursor: pointer; }
   outline: none;
 }
 
+/* ── confidentiality disclaimer ───────────────────── */
+.disclaimer-section {
+  padding: 48px 32px;
+  border-top: 1px solid var(--bg-border);
+  background: var(--bg);
+}
+
+.disclaimer-section .content-inner {
+  max-width: 720px;
+}
+
+.disclaimer-heading {
+  margin: 0 0 18px;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.disclaimer-heading::before {
+  content: '*';
+  margin-right: 10px;
+  color: var(--accent);
+}
+
+.disclaimer-body {
+  border-left: 1px solid var(--accent-dim);
+  padding-left: 16px;
+  max-width: 640px;
+}
+
+.disclaimer-body p {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.disclaimer-body p:last-child { margin-bottom: 0; }
+
+/* ── footer ───────────────────────────────────────── */
+.site-footer {
+  padding: 24px 20px;
+  border-top: 1px solid var(--bg-border);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  background: var(--bg);
+}
+
+.site-footer p { margin: 0; }
+
 /* ── desktop: hero fills first viewport, page scrolls below ── */
 @media (min-width: 769px) {
   .split {
@@ -688,6 +744,7 @@ button { cursor: pointer; }
   .content-section { padding: 56px 20px; }
   .services-grid { grid-template-columns: 1fr; }
   .content-section h2::before { margin-right: 10px; }
+  .disclaimer-section { padding: 40px 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
