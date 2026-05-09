@@ -192,7 +192,7 @@ button { cursor: pointer; }
 .availability-label {
   font-family: var(--font-sans);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
@@ -767,7 +767,7 @@ button { cursor: pointer; }
   }
   .availability-indicator {
     position: absolute;
-    top: calc(25% - 80px);
+    top: calc(25% - 140px);
     left: 0;
     margin-bottom: 0;
   }
