@@ -76,58 +76,6 @@ h1, h2, h3, p, li {
   to   { opacity: 1; }
 }
 
-/* ── animated DNA double helix ───────────────────── */
-.bg-layer {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
-  background: var(--bg);
-}
-
-.dna-helix {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 200vw;
-  height: 55vh;
-  pointer-events: none;
-  will-change: transform;
-  opacity: 0.85;
-  transform: translateY(-50%) translateX(0);
-  animation: dna-flow 38s linear infinite !important;
-}
-
-.dna-strand {
-  stroke-width: 5;
-}
-
-.dna-strand-glow {
-  filter: drop-shadow(0 0 6px rgba(79, 255, 176, 0.6));
-}
-
-@keyframes dna-flow {
-  from { transform: translateY(-50%) translateX(0); }
-  to   { transform: translateY(-50%) translateX(-50%); }
-}
-
-.dna-rungs {
-  transform-origin: center;
-  animation: dna-twist 8s ease-in-out infinite !important;
-}
-
-@keyframes dna-twist {
-  0%, 100% { transform: scaleY(1); }
-  50%      { transform: scaleY(0.55); }
-}
-
-.frost {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-}
-
 a { color: inherit; cursor: pointer; }
 button { cursor: pointer; }
 
