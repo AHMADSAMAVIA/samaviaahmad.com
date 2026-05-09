@@ -167,8 +167,8 @@ button { cursor: pointer; }
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   flex-shrink: 0;
   display: inline-block;
@@ -180,7 +180,7 @@ button { cursor: pointer; }
 
 .dot--open {
   background-color: #4fffb0;
-  box-shadow: 0 0 6px #4fffb0;
+  box-shadow: 0 0 8px #4fffb0;
   animation: pulse 2s infinite;
 }
 
@@ -191,10 +191,10 @@ button { cursor: pointer; }
 
 .availability-label {
   font-family: 'Courier New', monospace;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #555555;
+  color: #ffffff;
 }
 
 /* ── split layout ─────────────────────────────────── */
@@ -763,6 +763,12 @@ button { cursor: pointer; }
   .visual {
     flex: 1 1 60%;
     min-height: 0;
+  }
+  .availability-indicator {
+    position: absolute;
+    top: 22%;
+    left: 0;
+    margin-bottom: 0;
   }
 }
 
