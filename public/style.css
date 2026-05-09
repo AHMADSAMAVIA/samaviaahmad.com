@@ -192,6 +192,7 @@ button { cursor: pointer; }
 .availability-label {
   font-family: 'Courier New', monospace;
   font-size: 0.85rem;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
@@ -766,7 +767,7 @@ button { cursor: pointer; }
   }
   .availability-indicator {
     position: absolute;
-    top: 22%;
+    top: 17%;
     left: 0;
     margin-bottom: 0;
   }
