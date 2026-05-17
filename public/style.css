@@ -84,85 +84,37 @@ p { margin: 0; }
 a { color: inherit; cursor: pointer; text-decoration: none; }
 button { cursor: pointer; font-family: inherit; }
 
-/* ── animated gradient background ─────────────────── */
+/* ── gradient background (smooth, no filters) ─────── */
 .gradient-bg {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: var(--bg-deep);
-  overflow: hidden;
   pointer-events: none;
+  background-color: var(--bg-deep);
+  background-image:
+    radial-gradient(80vw 70vh at 12% 8%,  rgba(91, 141, 239, 0.22), transparent 70%),
+    radial-gradient(75vw 65vh at 88% 22%, rgba(167, 139, 250, 0.20), transparent 70%),
+    radial-gradient(85vw 70vh at 50% 95%, rgba(77, 214, 255, 0.16), transparent 70%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%, 100% 100%, 100% 100%;
+  animation: bg-pan 30s ease-in-out infinite alternate;
 }
 
-.gradient-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.55;
-  will-change: transform;
-}
-
-.orb-1 {
-  width: 60vw;
-  height: 60vw;
-  top: -20vw;
-  left: -15vw;
-  background: radial-gradient(circle at 30% 30%, rgba(91, 141, 239, 0.6), transparent 60%);
-  animation: drift-1 22s ease-in-out infinite;
-}
-
-.orb-2 {
-  width: 55vw;
-  height: 55vw;
-  top: 20vh;
-  right: -20vw;
-  background: radial-gradient(circle at 50% 50%, rgba(167, 139, 250, 0.55), transparent 60%);
-  animation: drift-2 28s ease-in-out infinite;
-}
-
-.orb-3 {
-  width: 50vw;
-  height: 50vw;
-  bottom: -15vw;
-  left: 15vw;
-  background: radial-gradient(circle at 50% 50%, rgba(77, 214, 255, 0.5), transparent 60%);
-  animation: drift-3 32s ease-in-out infinite;
-}
-
-@keyframes drift-1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%      { transform: translate(8vw, 6vh) scale(1.08); }
-}
-@keyframes drift-2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%      { transform: translate(-6vw, 10vh) scale(1.05); }
-}
-@keyframes drift-3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%      { transform: translate(10vw, -8vh) scale(1.1); }
+@keyframes bg-pan {
+  0%   { background-position: 0% 0%, 100% 0%, 50% 100%; }
+  100% { background-position: 10% 10%, 90% 15%, 60% 95%; }
 }
 
 .grain {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    radial-gradient(rgba(255,255,255,0.015) 1px, transparent 1px);
+    radial-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.012) 1px, transparent 1px);
   background-size: 3px 3px, 7px 7px;
   background-position: 0 0, 1px 1px;
   opacity: 0.6;
   mix-blend-mode: overlay;
-}
-
-/* Frosted overlay so text always reads cleanly */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(180deg, rgba(10, 15, 31, 0.55) 0%, rgba(6, 9, 18, 0.85) 100%);
-  backdrop-filter: blur(28px) saturate(120%);
-  -webkit-backdrop-filter: blur(28px) saturate(120%);
   pointer-events: none;
 }
 
@@ -1088,5 +1040,5 @@ body::before {
   .fade-up, .hero-line, .hero-sep { opacity: 1 !important; transform: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .reveal.is-visible .underline-anim::after { transform: scaleX(1); }
-  .gradient-orb { animation: none !important; }
+  .gradient-bg { animation: none !important; }
 }
