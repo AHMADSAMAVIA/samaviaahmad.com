@@ -212,10 +212,10 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .hero-title {
-  font-size: clamp(2rem, 6.2vw, 5.4rem);
+  font-size: clamp(2.1rem, 5.4vw, 4.8rem);
   font-weight: 700;
   letter-spacing: -0.035em;
-  line-height: 1.05;
+  line-height: 1.08;
   margin: 0;
   background: var(--grad-1);
   background-size: 200% 200%;
@@ -226,22 +226,12 @@ button { cursor: pointer; font-family: inherit; }
   animation: grad-shift 14s ease infinite;
 }
 
-.hero-line, .hero-sep {
-  display: inline-block;
+.hero-line {
+  display: block;
   opacity: 0;
   transform: translateY(20px);
   animation: fade-up 0.9s var(--ease-out) forwards;
   animation-delay: var(--delay, 0s);
-}
-
-.hero-sep {
-  margin: 0 0.35em;
-  background: var(--grad-1);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  opacity: 0.55;
 }
 
 @keyframes grad-shift {
@@ -959,7 +949,6 @@ button { cursor: pointer; font-family: inherit; }
   .topbar-inner { padding: 14px 20px; }
   .hero { padding: 56px 20px 80px; min-height: calc(100vh - 65px); }
   .hero-title { font-size: clamp(1.9rem, 9vw, 3.4rem); }
-  .hero-sep { margin: 0 0.2em; }
   .hero-subtitle { font-size: 1rem; margin-top: 22px; }
   .hero-availability {
     flex-direction: column;
@@ -980,8 +969,6 @@ button { cursor: pointer; font-family: inherit; }
 
 @media (max-width: 480px) {
   .hero-title { font-size: clamp(1.7rem, 10vw, 2.6rem); }
-  .hero-sep { display: none; }
-  .hero-line { display: block; margin: 4px 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -993,7 +980,7 @@ button { cursor: pointer; font-family: inherit; }
     transition-duration: 0.001ms !important;
   }
   .suggest-btn { opacity: 1 !important; }
-  .fade-up, .hero-line, .hero-sep { opacity: 1 !important; transform: none !important; }
+  .fade-up, .hero-line { opacity: 1 !important; transform: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .reveal.is-visible .underline-anim::after { transform: scaleX(1); }
   .gradient-bg { animation: none !important; }
