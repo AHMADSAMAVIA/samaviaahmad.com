@@ -25,6 +25,8 @@
     <div class="grain"></div>
   </div>
 
+  <div class="cursor-glow" aria-hidden="true"></div>
+
   <header class="topbar">
     <div class="topbar-inner">
       <a class="wordmark" href="/" aria-label="samavia ahmad, home">
@@ -73,10 +75,10 @@
             <span class="availability-label">Q3: Open for contracts</span>
           </span>
         </div>
-      </div>
-      <div class="hero-scroll-hint fade-up" style="--delay: 1s" aria-hidden="true">
-        <span>Scroll</span>
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        <div class="hero-scroll-hint fade-up" style="--delay: 1s" aria-hidden="true">
+          <span>Scroll</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
       </div>
     </section>
 
@@ -216,6 +218,21 @@
   </footer>
 
   <script>
+    // ── cursor glow ─────────────────────────────────────
+    (function() {
+      const glow = document.querySelector('.cursor-glow');
+      if (!glow || window.matchMedia('(pointer: coarse)').matches) return;
+      let raf = null, x = 0, y = 0;
+      window.addEventListener('mousemove', (e) => {
+        x = e.clientX; y = e.clientY;
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          glow.style.transform = `translate3d(${x - 250}px, ${y - 250}px, 0)`;
+          raf = null;
+        });
+      }, { passive: true });
+    })();
+
     // ── scroll reveal ───────────────────────────────────
     (function() {
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
