@@ -198,15 +198,20 @@ button { cursor: pointer; font-family: inherit; }
 .hero {
   position: relative;
   min-height: calc(100vh - 73px);
+  min-height: calc(100dvh - 73px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 80px 32px 60px;
+  padding: 24px 32px 20px;
   text-align: center;
 }
 
 .hero-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   max-width: 1100px;
   width: 100%;
 }
@@ -315,13 +320,11 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 .hero-scroll-hint {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  padding: 14px 0 6px;
   color: var(--text-muted);
   font-size: 0.75rem;
   letter-spacing: 0.12em;
@@ -947,15 +950,24 @@ button { cursor: pointer; font-family: inherit; }
 
 @media (max-width: 768px) {
   .topbar-inner { padding: 14px 20px; }
-  .hero { padding: 56px 20px 80px; min-height: calc(100vh - 65px); }
+  .hero {
+    padding: 20px 20px 14px;
+    min-height: calc(100vh - 65px);
+    min-height: calc(100dvh - 65px);
+  }
   .hero-title { font-size: clamp(1.9rem, 9vw, 3.4rem); }
   .hero-subtitle { font-size: 1rem; margin-top: 22px; }
   .hero-availability {
-    flex-direction: column;
-    gap: 8px;
-    padding: 12px 18px;
-    align-items: flex-start;
+    flex-direction: row;
+    gap: 14px;
+    padding: 8px 14px;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    align-items: center;
+    margin-top: 28px;
   }
+  .availability-row { gap: 6px; }
+  .dot { width: 7px; height: 7px; }
   .section { padding: 80px 20px; }
   .section-title { font-size: clamp(1.5rem, 5.5vw, 2rem); }
   .spotlight-card { padding: 32px 24px; }
