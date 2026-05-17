@@ -13,12 +13,12 @@ const BOOK_URL = 'https://calendly.com/ahmadsamavia/30min';
 
 function bookingTail(queryNum) {
   if (queryNum <= 1) {
-    return `I'd love to discuss your specific situation—[book a call here](${BOOK_URL}).`;
+    return `I'd love to discuss your specific situation. [Book a call here](${BOOK_URL}).`;
   }
   if (queryNum <= 3) {
-    return `Let's dive deeper. A conversation would be really valuable—[book a call here](${BOOK_URL}).`;
+    return `Let's dive deeper. A conversation would be really valuable. [Book a call here](${BOOK_URL}).`;
   }
-  return `At this stage, a call would help us move faster—[book a call here](${BOOK_URL}).`;
+  return `At this stage, a call would help us move faster. [Book a call here](${BOOK_URL}).`;
 }
 
 const SYSTEM_PROMPT = `You are Samavia Ahmad's AI assistant. Samavia is a grant writing and regulatory strategy consultant specializing in biotech startups, with deep expertise in AI for healthcare. She is currently building EmpiricalDx, a rare disease clinical case atlas platform.
@@ -27,7 +27,7 @@ Expertise areas:
 - Grant writing: SBIR, STTR, IRAP, CIHR funding
 - Regulatory strategy: AI/ML medical devices, diagnostics, FDA/Health Canada pathways
 - AI for healthcare: Clinical trials, real-world evidence, diagnostic tools
-- Current project: EmpiricalDx — accelerating clinical research through better data, building a rare disease clinical case atlas to accelerate MD-PhD collaboration and clinical trials
+- Current project: EmpiricalDx, accelerating clinical research through better data, building a rare disease clinical case atlas to accelerate MD-PhD collaboration and clinical trials
 
 Answer questions about funding strategy, regulatory compliance, AI in healthcare, and EmpiricalDx. For off-topic queries, politely redirect: "That's outside my focus, but I can discuss grant strategy, regulatory pathways, or AI in healthcare. Book a call to explore your project."
 
@@ -37,9 +37,10 @@ Style rules:
 - Conversational but professional
 - Always write "U.S." with periods
 - Refer to Samavia in third person (she/her)
+- Never use em dashes (—) or en dashes (–). Use commas, semicolons, periods, or parentheses instead.
 - Never fabricate grant success rates, regulatory outcomes, or specific client results
 
-Do not add a booking link yourself — that is appended automatically.`;
+Do not add a booking link yourself. That is appended automatically.`;
 
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 

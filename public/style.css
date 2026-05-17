@@ -118,26 +118,6 @@ button { cursor: pointer; font-family: inherit; }
   pointer-events: none;
 }
 
-/* ── cursor glow ──────────────────────────────────── */
-.cursor-glow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 500px;
-  height: 500px;
-  pointer-events: none;
-  z-index: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(77, 214, 255, 0.08) 0%, transparent 60%);
-  transform: translate3d(-9999px, -9999px, 0);
-  will-change: transform;
-  mix-blend-mode: screen;
-}
-
-@media (pointer: coarse) {
-  .cursor-glow { display: none; }
-}
-
 /* ── topbar ───────────────────────────────────────── */
 .topbar {
   position: sticky;
@@ -960,38 +940,14 @@ button { cursor: pointer; font-family: inherit; }
 .footer-inner {
   max-width: 1240px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  text-align: center;
 }
 
 .footer-copy {
   color: var(--text-muted);
   font-size: 0.82rem;
   letter-spacing: 0.02em;
-}
-
-.footer-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: var(--radius-sm);
-  color: var(--text-secondary);
-  transition:
-    color 0.2s var(--ease),
-    background 0.2s var(--ease),
-    transform 0.2s var(--ease-out);
-}
-
-.footer-link:hover,
-.footer-link:focus-visible {
-  color: var(--text-primary);
-  background: var(--surface-strong);
-  transform: translateY(-1px);
-  outline: none;
+  margin: 0;
 }
 
 /* ── responsive ───────────────────────────────────── */
