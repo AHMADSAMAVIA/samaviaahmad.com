@@ -535,8 +535,8 @@ button { cursor: pointer; font-family: inherit; }
   position: relative;
   padding: 30px 26px;
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-strong);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition:
@@ -547,22 +547,25 @@ button { cursor: pointer; font-family: inherit; }
 
 .value-card:hover {
   transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.045);
-  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 .value-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
-  background: var(--surface-strong);
-  border: 1px solid var(--border-strong);
-  color: var(--accent);
-  margin-bottom: 16px;
+  background: var(--grad-1);
+  color: #0a0f1f;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px -10px var(--accent-glow);
+  flex-shrink: 0;
 }
+
+.value-icon svg { display: block; }
 
 .value-card h3 {
   font-size: 1.02rem;
@@ -589,10 +592,10 @@ button { cursor: pointer; font-family: inherit; }
 
 .experience-card {
   position: relative;
-  padding: 28px 26px;
+  padding: 28px 26px 28px 30px;
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-strong);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition:
